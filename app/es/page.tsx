@@ -1,12 +1,15 @@
 import { HomePage } from "@/components/home-page";
-import { pageMetadata } from "@/components/site";
+import { HOME_LANGUAGES, pageMetadata } from "@/components/site";
+import { getDictionary } from "@/lib/i18n";
+
+const dict = getDictionary("es");
 
 export const metadata = pageMetadata({
-  title: "Horizon: Minecraft Rust Edition, Java 26.3 reconstruido en Rust",
-  description:
-    "Minecraft: Java Edition 26.3 reescrito en Rust. Gratuito, de código abierto y probado contra vanilla. Descarga el launcher de Horizon para Windows, macOS y Linux.",
+  title: dict.meta.title,
+  description: dict.meta.description,
   path: "/es",
   locale: "es_ES",
+  languages: HOME_LANGUAGES,
 });
 
 export default function HomeSpanish() {

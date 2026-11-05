@@ -4,7 +4,12 @@ const nextConfig: NextConfig = {
   output: "standalone",
   allowedDevOrigins: ["202.61.226.46"],
   images: {
-    remotePatterns: [{ protocol: "https", hostname: "avatars.githubusercontent.com", pathname: "/u/**", search: "?v=4" }],
+    remotePatterns: [
+      { protocol: "https", hostname: "avatars.githubusercontent.com", pathname: "/u/**", search: "?v=4" },
+      // The hub's People tab: Discord avatars, as Kira's /staff.json gives them (components/org-chart.ts checks the form).
+      { protocol: "https", hostname: "cdn.discordapp.com", pathname: "/avatars/**", search: "?size=128" },
+      { protocol: "https", hostname: "cdn.discordapp.com", pathname: "/embed/avatars/**", search: "" },
+    ],
   },
   experimental: {
     agentFeedback: true,
@@ -34,7 +39,9 @@ const nextConfig: NextConfig = {
       { source: "/staff/:path*", headers: privateHeaders },
       { source: "/hub/:view(team|mod|sign-in|setup|staff-help)", headers: privateHeaders },
       { source: "/apply", headers: privateHeaders },
+      { source: "/launcher", headers: privateHeaders },
       { source: "/mods/submit", headers: [{ key: "X-Frame-Options", value: "DENY" }, { key: "Content-Security-Policy", value: "frame-ancestors 'none'" }] },
+      { source: "/mods/:id/edit", headers: [{ key: "X-Frame-Options", value: "DENY" }, { key: "Content-Security-Policy", value: "frame-ancestors 'none'" }] },
     ];
   },
   cacheComponents: true,

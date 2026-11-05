@@ -3,7 +3,7 @@ import type { CSSProperties } from "react";
 import { FrameRateComparison } from "@/components/frame-rate-comparison";
 import { HorizonScene } from "@/components/horizon-scene";
 import { DownloadIcon, GitHubIcon, LinuxIcon, RustIcon, WindowsIcon } from "@/components/icons";
-import { getReleases, launcherBuild } from "@/components/github-releases";
+import { getLauncherDownloads, getReleases, launcherBuild } from "@/components/github-releases";
 import { LauncherLink, LauncherMeta } from "@/components/launcher-download";
 import { GITHUB_URL, RUST_WIKI_URL } from "@/components/links";
 import { type Locale, getDictionary } from "@/lib/i18n";
@@ -19,8 +19,11 @@ function Dot({ className = "mx-2" }: { className?: string }) {
 }
 
 export async function Hero({ locale = "en" }: { locale?: Locale }) {
-  const launcher = launcherBuild(await getReleases());
+  const [releases, downloads] = await Promise.all([getReleases(), getLauncherDownloads()]);
+  const launcher = launcherBuild(releases);
   const dict = getDictionary(locale);
+  const isSpanish = locale === "es";
+
   return (
     <section className="relative isolate flex min-h-svh flex-col overflow-hidden">
       <HorizonScene className="absolute inset-0 -z-10" />
@@ -51,7 +54,7 @@ export async function Hero({ locale = "en" }: { locale?: Locale }) {
           </p>
 
           <h1
-            className="rise mt-5 font-display text-[clamp(2rem,10.4cqi,4.75rem)] leading-[1.02] font-semibold tracking-[-0.035em] text-white"
+            className="rise mt-5 font-display text-[clamp(2rem,10.4cqi,4.75rem)] leading-[1.02] font-semibold tracking-[-0.03em] text-white"
             style={delay(80)}
           >
             <span className="sr-only">Horizon: </span>
@@ -94,6 +97,14 @@ export async function Hero({ locale = "en" }: { locale?: Locale }) {
             <span className="basis-full whitespace-nowrap sm:basis-auto">
               <Dot className="mr-2 hidden sm:inline" />
               <LauncherMeta build={launcher} dot={<Dot />} />
+              {downloads !== null && (
+                <>
+                  {launcher && <Dot />}
+                  <span title={dict.hero.downloadsTitle}>
+                    <span className="tabular-nums">{downloads.toLocaleString(isSpanish ? "es-ES" : "en-US")}</span> {dict.hero.downloadsLabel}
+                  </span>
+                </>
+              )}
             </span>
           </div>
         </div>

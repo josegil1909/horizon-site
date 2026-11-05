@@ -1,19 +1,12 @@
 {
-  "header": {
-    "about": "About",
-    "hub": "Hub",
-    "benchmarks": "Benchmarks",
-    "mods": "Mods",
-    "releases": "Releases",
-    "docs": "Docs",
-    "players": "Players",
-    "download": "Download",
-    "mainNav": "Main",
-    "new": "new",
-    "openMenu": "Open the menu",
-    "closeMenu": "Close the menu",
-    "switchLanguage": "Cambiar a Español",
-    "languageLabel": "Language"
+  "meta": {
+    "title": "Horizon: Minecraft Rust Edition, Java 26.3 rewritten in Rust",
+    "description": "Minecraft: Java Edition 26.3 rewritten in Rust. Free, open source and tested against vanilla. Get the Horizon launcher for Windows, macOS and Linux."
+  },
+  "jsonLd": {
+    "websiteDescription": "Minecraft: Java Edition 26.3 rewritten in Rust. Free, open source and tested against vanilla. Get the Horizon launcher for Windows, macOS and Linux.",
+    "appDescription": "Minecraft: Java Edition 26.3 rewritten in Rust. Free, open source and tested against vanilla.",
+    "softwareRequirements": "A legally obtained copy of Minecraft: Java Edition 26.3"
   },
   "hero": {
     "gameVersion": "Minecraft: Java Edition 26.3",
@@ -24,7 +17,9 @@
     "downloadLauncher": "Download the launcher",
     "viewOnGitHub": "View on GitHub",
     "windows": "Windows",
-    "linux": "Linux"
+    "linux": "Linux",
+    "downloadsTitle": "Downloads of the launcher from GitHub, all versions, updates included",
+    "downloadsLabel": "downloads"
   },
   "about": {
     "eyebrow": "What it is",
@@ -51,7 +46,9 @@
     "sourceTitle": "Source",
     "sourceBody": "Issues and pull requests are welcome.",
     "buildTitle": "How it's built",
-    "buildBody": "Who writes it, how changes are checked, why it's safe to run."
+    "buildBody": "Who writes it, how changes are checked, why it's safe to run.",
+    "artistsPrompt": "Do you make 3D models?",
+    "artistsLink": "Horizon is looking for 3D artists"
   },
   "gallery": {
     "eyebrow": "Drawn by",
@@ -72,7 +69,7 @@
     "whoMakesItTitle": "Who makes it",
     "whoMakesItPart1": "Horizon is made by Ludovic Marie; reach him through",
     "whoMakesItPart2": "This site is developed by Anthony S of",
-    "whoMakesItPart3": ", who is responsible for it. Horizon contains no Minecraft code, assets or data, and this site offers no game files: you need your own legally obtained copy of Minecraft: Java Edition. Minecraft is a trademark of Mojang Synergies AB.",
+    "whoMakesItPart3": ", who is responsible for it. Horizon contains no Minecraft code, assets or data, and this site offers no game files: you need your own legally obtained copy of Minecraft: Java Edition. Minecraft is a trademark of Mojang Synergies AB. Horizon's cosmetics are sold by Ludovic Marie through Paddle.com, the merchant of record.",
     "licencesTitle": "Licences",
     "licencesPart1": "Horizon's original work is under the",
     "mitLicence": "MIT licence",
@@ -85,6 +82,10 @@
     "privacyPart2": "covers those requests. The launcher sends nothing unless you allow it:",
     "telemetryLink": "what it can send, and how to delete it",
     "privacyPolicy": "Privacy policy",
+    "termsOfSale": "Terms of sale",
+    "refunds": "Refunds",
+    "shop": "Shop",
+    "languageSwitch": "Español",
     "madeInOpen": "Made in the open, in Rust.",
     "opensInNewTab": "(opens in a new tab)"
   }

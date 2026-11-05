@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import type { ReactNode } from "react";
+import { Suspense, type ReactNode } from "react";
 import { GitHubIcon, HorizonMark, MicrosoftIcon, MojangIcon, RustIcon } from "@/components/icons";
 import { GITHUB_URL } from "@/components/links";
 import { getDictionary } from "@/lib/i18n";
@@ -28,10 +28,29 @@ function Heading({ children }: { children: ReactNode }) {
 }
 
 export function SiteFooter() {
-  const pathname = usePathname();
+  return (
+    <Suspense fallback={<SiteFooterView pathname="" />}>
+      <SiteFooterAtPath />
+    </Suspense>
+  );
+}
+
+function SiteFooterAtPath() {
+  return <SiteFooterView pathname={usePathname()} />;
+}
+
+function SiteFooterView({ pathname }: { pathname: string }) {
   const isSpanish = pathname === "/es" || pathname.startsWith("/es/");
+  const isHome = pathname === "" || pathname === "/" || pathname === "/es";
   const dict = getDictionary(isSpanish ? "es" : "en");
   const srText = dict.footer.opensInNewTab;
+
+  const legal = [
+    { href: "/privacy", label: dict.footer.privacyPolicy },
+    { href: "/terms", label: dict.footer.termsOfSale },
+    { href: "/refunds", label: dict.footer.refunds },
+    { href: "/shop", label: dict.footer.shop },
+  ];
 
   return (
     <footer lang={isSpanish ? "es" : "en"} className="mt-auto border-t border-white/[0.08]">
@@ -78,13 +97,25 @@ export function SiteFooter() {
               {dict.footer.privacyPart2}{" "}
               <Out href={`${GITHUB_URL}/blob/main/docs/telemetry.md`} srText={srText}>{dict.footer.telemetryLink}</Out>.
             </p>
-            <p className="mt-3">
-              <Link
-                href="/privacy"
-                className="font-medium text-white/80 underline decoration-white/25 underline-offset-4 transition-colors hover:text-white hover:decoration-white/60"
-              >
-                {dict.footer.privacyPolicy}
-              </Link>
+            <p className="mt-3 flex flex-wrap gap-x-4 gap-y-1">
+              {legal.map(({ href, label }) => (
+                <Link
+                  key={href}
+                  href={href}
+                  className="font-medium text-white/80 underline decoration-white/25 underline-offset-4 transition-colors hover:text-white hover:decoration-white/60"
+                >
+                  {label}
+                </Link>
+              ))}
+              {isHome && (
+                <Link
+                  href={isSpanish ? "/" : "/es"}
+                  hrefLang={isSpanish ? "en" : "es"}
+                  className="font-medium text-white/80 underline decoration-white/25 underline-offset-4 transition-colors hover:text-white hover:decoration-white/60"
+                >
+                  {dict.footer.languageSwitch}
+                </Link>
+              )}
             </p>
           </div>
         </div>

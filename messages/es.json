@@ -1,30 +1,25 @@
 {
-  "header": {
-    "about": "Acerca de",
-    "hub": "Centro",
-    "benchmarks": "Rendimiento",
-    "mods": "Mods",
-    "releases": "Versiones",
-    "docs": "Documentación",
-    "players": "Jugadores",
-    "download": "Descargar",
-    "mainNav": "Principal",
-    "new": "nuevas",
-    "openMenu": "Abrir el menú",
-    "closeMenu": "Cerrar el menú",
-    "switchLanguage": "Switch to English",
-    "languageLabel": "Idioma"
+  "meta": {
+    "title": "Horizon: Minecraft Rust Edition, Java 26.3 reconstruido en Rust",
+    "description": "Minecraft: Java Edition 26.3 reescrito en Rust. Gratuito, de código abierto y probado contra vanilla. Descarga el launcher de Horizon para Windows, macOS y Linux."
+  },
+  "jsonLd": {
+    "websiteDescription": "Minecraft: Java Edition 26.3 reescrito en Rust. Gratuito, de código abierto y probado contra vanilla. Descarga el launcher de Horizon para Windows, macOS y Linux.",
+    "appDescription": "Minecraft: Java Edition 26.3 reescrito en Rust. Gratuito, de código abierto y probado contra vanilla.",
+    "softwareRequirements": "Una copia legalmente obtenida de Minecraft: Java Edition 26.3"
   },
   "hero": {
     "gameVersion": "Minecraft: Java Edition 26.3",
     "writtenIn": "Escrito en",
     "titleLine1": "El juego que conoces,",
     "titleLine2": "reconstruido en Rust.",
-    "subtitle": "El cliente de Minecraft: Java Edition 26.3 y su lógica de juego, reescritos en Rust y verificados contra el juego vanilla mediante 281 pruebas diferenciales.",
+    "subtitle": "El cliente de Minecraft: Java Edition 26.3 y su lógica de juego, reescritos en Rust y verificados contra el juego vanilla mediante 281 bancos de pruebas diferenciales.",
     "downloadLauncher": "Descargar el launcher",
     "viewOnGitHub": "Ver en GitHub",
     "windows": "Windows",
-    "linux": "Linux"
+    "linux": "Linux",
+    "downloadsTitle": "Descargas del launcher desde GitHub, todas las versiones, actualizaciones incluidas",
+    "downloadsLabel": "descargas"
   },
   "about": {
     "eyebrow": "Qué es",
@@ -36,9 +31,9 @@
     "point1Title": "Tu propia copia",
     "point1Body": "Instala Java Edition con el launcher oficial y juega la versión 26.3 una vez. Horizon genera sus recursos a partir de esos archivos en tu equipo, y nunca descarga ni comparte archivos del juego.",
     "point2Title": "Nativo en tres plataformas",
-    "point2Body": "Linux, macOS en Apple Silicon y Windows. Los mundos provienen de una adaptación en Rust de los generadores vanilla, dibujados con los modelos de bloques, iluminación, cielo y niebla de vanilla.",
+    "point2Body": "Linux, macOS en Apple Silicon y Windows. Los mundos provienen de una adaptación en Rust de los generadores vanilla, renderizados con los modelos de bloques, iluminación, cielo y niebla de vanilla.",
     "point3Title": "Código abierto",
-    "point3Body": "El código de Horizon es MIT. No contiene código, recursos ni datos de Minecraft; estos pertenecen a Mojang y Microsoft bajo el EULA de Minecraft."
+    "point3Body": "El código de Horizon tiene licencia MIT. No contiene código, recursos ni datos de Minecraft; estos pertenecen a Mojang y Microsoft bajo el EULA de Minecraft."
   },
   "community": {
     "eyebrow": "Comunidad",
@@ -47,15 +42,17 @@
     "discordTitle": "Discord",
     "discordBody": "Preguntas, reportes de errores y capturas de pantalla.",
     "sponsorTitle": "Patrocinar",
-    "sponsorBody": "Los patrocinadores en GitHub financian la próxima versión.",
+    "sponsorBody": "Los patrocinadores en GitHub financian el próximo lanzamiento.",
     "sourceTitle": "Código fuente",
-    "sourceBody": "Las issues y pull requests son bienvenidas.",
-    "buildTitle": "Cómo está construido",
-    "buildBody": "Quién lo escribe, cómo se verifican los cambios y por qué es seguro ejecutarlo."
+    "sourceBody": "Las incidencias y pull requests son bienvenidos.",
+    "buildTitle": "Cómo se construye",
+    "buildBody": "Quién lo escribe, cómo se verifican los cambios y por qué es seguro ejecutarlo.",
+    "artistsPrompt": "¿Creas modelos 3D?",
+    "artistsLink": "Horizon busca artistas 3D"
   },
   "gallery": {
-    "eyebrow": "Dibujado por",
-    "title": "El mismo juego que amas,",
+    "eyebrow": "Renderizado por",
+    "title": "El mismo juego que te encanta,",
     "titleHighlight": "6× más rápido.",
     "description": "Cada fotograma aquí fue renderizado por Horizon, con los modelos de bloques, iluminación, cielo y niebla de vanilla.",
     "shotNether": "Bosque carmesí",
@@ -70,21 +67,25 @@
   "footer": {
     "disclaimer": "No es un producto oficial de Minecraft. No está aprobado ni asociado con Mojang o Microsoft.",
     "whoMakesItTitle": "Quién lo hace",
-    "whoMakesItPart1": "Horizon es creado por Ludovic Marie; contáctalo a través de",
-    "whoMakesItPart2": "Este sitio es desarrollado por Anthony S de",
-    "whoMakesItPart3": ", quien es responsable del mismo. Horizon no contiene código, recursos ni datos de Minecraft, y este sitio no ofrece archivos del juego: necesitas tu propia copia legalmente obtenida de Minecraft: Java Edition. Minecraft es una marca comercial de Mojang Synergies AB.",
+    "whoMakesItPart1": "Horizon está hecho por Ludovic Marie; contáctalo a través de",
+    "whoMakesItPart2": "Este sitio está desarrollado por Anthony S de",
+    "whoMakesItPart3": ", quien es responsable del mismo. Horizon no contiene código, recursos ni datos de Minecraft, y este sitio no ofrece archivos del juego: necesitas tu propia copia legalmente obtenida de Minecraft: Java Edition. Minecraft es una marca registrada de Mojang Synergies AB. Los cosméticos de Horizon son vendidos por Ludovic Marie a través de Paddle.com, el comerciante registrado.",
     "licencesTitle": "Licencias",
     "licencesPart1": "El trabajo original de Horizon está bajo la",
     "mitLicence": "licencia MIT",
     "licencesPart2": ". Las fuentes son Geist y Geist Mono, bajo la",
-    "silLicence": "licencia SIL Open Font",
+    "silLicence": "SIL Open Font License",
     "licencesPart3": ". Todos los recursos de este sitio están listados en LEGAL.md.",
     "privacyTitle": "Privacidad",
-    "privacyPart1": "Este sitio no utiliza cookies, no tiene analíticas ni rastreadores y no carga nada de terceros excepto GitHub. Al abrir una versión, el servidor guarda un hash unidireccional de tu dirección IP para contar cada visitante una sola vez; la dirección en sí nunca se almacena. Para mostrar las últimas versiones, notas de parches, enlaces y colaboradores, tu navegador los solicita a api.github.com y raw.githubusercontent.com, y a avatars.githubusercontent.com para las imágenes de los colaboradores;",
+    "privacyPart1": "Este sitio no utiliza cookies, no tiene analíticas ni rastreadores y no carga nada de terceros excepto GitHub. Cuando abres un lanzamiento, el servidor guarda un hash unidireccional de tu dirección IP para que cada lanzamiento cuente cada visitante una sola vez; la dirección en sí nunca se almacena. Para mostrar los últimos lanzamientos, notas de parche, enlaces y colaboradores, tu navegador los solicita a api.github.com y raw.githubusercontent.com, y los avatares de los colaboradores a avatars.githubusercontent.com;",
     "githubPrivacy": "la declaración de privacidad de GitHub",
     "privacyPart2": "cubre esas solicitudes. El launcher no envía nada a menos que lo permitas:",
     "telemetryLink": "qué puede enviar y cómo eliminarlo",
     "privacyPolicy": "Política de privacidad",
+    "termsOfSale": "Términos de venta",
+    "refunds": "Reembolsos",
+    "shop": "Tienda",
+    "languageSwitch": "English",
     "madeInOpen": "Creado en abierto, en Rust.",
     "opensInNewTab": "(se abre en una nueva pestaña)"
   }

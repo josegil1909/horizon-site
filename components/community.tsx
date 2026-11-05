@@ -1,3 +1,4 @@
+import Link from "next/link";
 import type { ComponentType, SVGProps } from "react";
 import { DiscordIcon, DollarIcon, GitHubIcon, ShieldIcon } from "@/components/icons";
 import { BUILD_URL, DISCORD_URL, GITHUB_URL, SPONSOR_URL } from "@/components/links";
@@ -87,6 +88,14 @@ export function Community({ locale = "en" }: { locale?: Locale }) {
             </li>
           ))}
         </ul>
+
+        <p className="mt-6 text-sm text-white/60">
+          {dict.community.artistsPrompt}{" "}
+          <Link href="/artists" className="font-medium text-white/85 underline decoration-white/25 underline-offset-4 transition-colors hover:text-white hover:decoration-white/60">
+            {dict.community.artistsLink}
+          </Link>
+          .
+        </p>
       </div>
     </section>
   );

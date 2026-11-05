@@ -36,14 +36,39 @@ export function fitDescription(text: string, max = 160) {
 
 export const OG_IMAGE = { url: "/opengraph-image", width: 1200, height: 630, alt: "Horizon: Minecraft: Java Edition 26.3, rebuilt in Rust" };
 
-type PageSeo = { title: string; description: string; path: string; type?: "website" | "article"; image?: typeof OG_IMAGE; locale?: string };
+type PageSeo = {
+  title: string;
+  description: string;
+  path: string;
+  type?: "website" | "article";
+  image?: typeof OG_IMAGE;
+  locale?: string;
+  languages?: Record<string, string>;
+};
 
-export function pageMetadata({ title, description, path, type = "website", image = OG_IMAGE, locale = "en_US" }: PageSeo): Metadata {
+export const HOME_LANGUAGES: Record<string, string> = {
+  en: "/",
+  es: "/es",
+  "x-default": "/",
+};
+
+export function pageMetadata({
+  title,
+  description,
+  path,
+  type = "website",
+  image = OG_IMAGE,
+  locale = "en_US",
+  languages,
+}: PageSeo): Metadata {
   const text = fitDescription(description);
   return {
     title,
     description: text,
-    alternates: { canonical: path },
+    alternates: {
+      canonical: path,
+      ...(languages ? { languages } : {}),
+    },
     openGraph: { type, siteName: SITE_NAME, locale, url: path, title, description: text, images: [image] },
     twitter: { card: "summary_large_image", title, description: text, images: [image] },
   };

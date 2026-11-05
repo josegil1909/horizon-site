@@ -11,8 +11,9 @@ async function handle(request: NextRequest, { params }: Context) {
     prefix: "/api/mods",
     segments: path,
     methods: ["GET", "POST"],
-    forward: ["accept", "content-type", "cookie", "user-agent", "x-csrf-token"],
-    maxBody: 70 * 1024 * 1024,
+    forward: ["accept", "content-type", "cookie", "origin", "user-agent", "x-csrf-token"],
+    // The service's own limit: a 64 MiB file, an icon and 8 screenshots of 1 MiB, the page's text.
+    maxBody: 76 * 1024 * 1024,
     buffer: false,
     timeoutMs: 180_000,
     closed: "The registry's service isn't open right now.",

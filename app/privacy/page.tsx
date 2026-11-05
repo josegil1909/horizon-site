@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
+import { Contact, PADDLE_PRIVACY, SELLER } from "@/components/legal";
 import { pageMetadata } from "@/components/site";
 
 export const metadata = pageMetadata({
@@ -88,7 +89,10 @@ export default function PrivacyPage() {
             Contributors&apos; and mod authors&apos; pictures come from avatars.githubusercontent.com, mod icons from horizon-rust.github.io, and every
             download from github.com. Those requests go from your browser to GitHub, and{" "}
             <Out href="https://docs.github.com/site-policy/privacy-policies/github-general-privacy-statement">GitHub&apos;s privacy statement</Out> covers
-            them. Nothing else on this site is loaded from another company.
+            them. Nothing else on this site is loaded from another company, except in the shop (/shop and /shop/pay): once you
+            start a claim or a purchase there, it loads Paddle.js from cdn.paddle.com, and Paddle&apos;s checkout runs in it under{" "}
+            <Out href="https://www.paddle.com/legal/privacy">Paddle&apos;s privacy policy</Out>. The face shown to confirm a Minecraft account is that
+            account&apos;s skin, loaded from textures.minecraft.net (Mojang).
           </p>
         </Part>
 
@@ -118,13 +122,40 @@ export default function PrivacyPage() {
           </p>
         </Part>
 
+        <Part title="Cosmetics and purchases">
+          <p>
+            Horizon&apos;s cosmetics service is run by {SELLER}, who is responsible for what it keeps. You claim and buy cosmetics on this site&apos;s
+            shop, without signing in: your browser sends the Minecraft name you type to the service (cosmetics.playhorizon.dev), which looks it up
+            in Mojang&apos;s public profiles and keeps the answer in memory for ten minutes. For each Minecraft account, keyed by its UUID, the service
+            keeps:
+          </p>
+          <ul className="list-disc space-y-2 pl-5 marker:text-white/30">
+            <li>the items it owns and since when, what it wears, whether its cosmetics are hidden, and when it claimed the founder set;</li>
+            <li>
+              if the founder set was claimed in the launcher&apos;s Wardrobe because Paddle doesn&apos;t serve your country: that country&apos;s
+              two-letter code. The service finds it from your IP address in a database it holds itself (IP geolocation by{" "}
+              <Out href="https://db-ip.com">DB-IP</Out>, CC BY 4.0) and keeps the country only, never the address;
+            </li>
+            <li>
+              for each order: Paddle&apos;s transaction id, the item, the amount and currency paid, its state (paid, refunded, disputed) and its date,
+              so the launcher can show your purchase history and refunds can take the item back.
+            </li>
+          </ul>
+          <p>
+            Nothing else: no name, email, address or payment details. Paddle.com, the merchant of record, takes the payment and keeps your email,
+            country and payment details under <Out href={PADDLE_PRIVACY}>Paddle&apos;s privacy policy</Out>; of what Paddle sends, the service keeps
+            only the lines above. Orders are kept as long as tax law requires a record of them. To see or delete
+            what the service holds about your account, write to <Contact />.
+          </p>
+        </Part>
+
         <Part title="Who is responsible, and your rights">
           <p>
             This website is developed and run by Anthony S of <Out href="https://dezerx.com">DezerX</Out>, who is responsible for what it keeps. You can ask
             what it holds about you, or have it deleted, through dezerx.com. Because only a hash of your address is kept, include the IP address you used,
             so your entry can be found. You can also complain to the data protection authority where you live.
           </p>
-          <p className="text-sm text-white/45">Last updated on 31 October 2026.</p>
+          <p className="text-sm text-white/45">Last updated on 4 November 2026.</p>
         </Part>
       </article>
     </main>
